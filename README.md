@@ -21,4 +21,4 @@
 ![Demo图片](demo.png)
 
 ## Star History
-[![Star History Chart](https://api.star-history.com/svg?repos=XxhutaoxX/navigation-page&type=Date)](https://star-history.com/#XxhutaoxX/navigation-page&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=XxhutaoxX/navigation-page&type=Timeline)](https://star-history.com/#XxhutaoxX/navigation-page&Timeline)

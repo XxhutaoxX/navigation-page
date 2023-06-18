@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>扫雷游戏</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div id="game">
+        <h1>扫雷游戏</h1>
+        <div align="center">
+            <fong>（每次打开难度都是随机的）</fong>
+        </div>
+        <input type="checkbox" id="show-bombs" hidden>
+        <input type="checkbox" id="flag-mode">
+        <label for="flag-mode">🚩mode</label>
+        <div class="pane"></div>
+        <div class="score">Cleared:
+            <br>
+        </div>
+        <div class="bombs">Bombs:
+            <br>
+        </div>
+        <div class="message"></div>
+        <div class="lost-game">
+            <label for="show-bombs">Show Bombs</label>
+        </div>
+    </div>
+    <script>
+
+        const rows = Math.floor(10 + (Math.random() * 5));
+        const cols = Math.floor(10 + (Math.random() * 5));
+        const bombs = Math.floor(15 + (Math.random() * 10));
+        let i, s, l, fi, fs, fl;
+        const game = document.getElementById('game');
+        const pane = game.querySelector('.pane');
+        const grid = [];
+        const style = document.createElement('style');
+        style.innerHTML = ".square:nth-of-type(" + cols + "n+1) {clear:left;}\n";
+        game.insertBefore(style, pane);
+        for (var r = 1; r <= rows; r++) {
+            grid[r] = [];
+            for (var c = 1; c <= cols; c++) {
+                i = grid[r][c] = document.createElement('input');
+                i.type = 'checkbox';
+                i.classList.add('open-square')
+                i.id = 'open-r' + r + '-c' + c;
+                i.r = r;
+                i.c = c;
+                game.insertBefore(i, pane);
+                s = document.createElement('span');
+                s.classList.add('square');
+                game.insertBefore(s, pane);
+                l = document.createElement('label');
+                l.htmlFor = i.id;
+                l.classList.add('open-label');
+                s.appendChild(l);
+                fi = document.createElement('input');
+                fi.type = "checkbox";
+                fi.classList.add('flag-square');
+                fi.id = 'flag-r' + r + '-c' + c;
+                s.appendChild(fi);
+
+                fs = document.createElement('span');
+                fs.classList.add('flag');
+                s.appendChild(fs);
+
+                fl = document.createElement('label');
+                fl.htmlFor = fi.id;
+                fl.classList.add('flag-label');
+                s.appendChild(fl);
+            }
+        }
+        for (var b = 0; b < bombs; b++) {
+            do {
+                r = 1 + (Math.random() * rows) >> 0;
+                c = 1 + (Math.random() * cols) >> 0;
+                console.log(r, c, grid[r][c]);
+            } while (grid[r][c].classList.contains('bomb'));
+            i = grid[r][c];
+            i.classList.add('bomb');
+
+            var list = getSurrounding(i)
+            for (r = 0; r < list.length; r++) {
+                i = list[r];
+                var count = Number(i.getAttribute('data-count')) || 0;
+                i.setAttribute('data-count', ++count);
+                i = i.nextElementSibling;
+                i.setAttribute('data-count', count);
+            }
+        }
+        var group = 1;
+        while (i = document.querySelector('.open-square:not([data-count]):not(.grouped)')) {
+            var check = [i];
+            do {
+                i = check.pop();
+                list = getSurrounding(i)
+                for (r = 0; r < list.length; r++) {
+                    i = list[r];
+                    if (!i.classList.contains('group' + group)) {
+                        i.classList.add('grouped');
+                        i.classList.add('group' + group);
+                        if (!i.getAttribute('data-count')) {
+                            check.push(i);
+                            i = document.querySelector('[for="' + i.id + '"]');
+                            i.htmlFor = 'group' + group;
+                        }
+                    }
+                }
+            } while (check.length);
+            i = document.createElement('input');
+            i.type = 'checkbox';
+            i.classList.add('group-master');
+            i.hidden = true;
+            i.id = 'group' + group;
+            style.innerHTML += '#group' + group + ':checked ~ .group' + group + ' + .square > label { display:none; }\n' + '#group' + group + ':checked ~ .group' + group + ' { counter-increment:cleared total }\n';
+            game.insertBefore(i, style);
+            group++;
+        }
+
+        function getSurrounding(i) {
+            var rs = Math.max(i.r - 1, 1);
+            var re = Math.min(i.r + 1, rows);
+            var cs = Math.max(i.c - 1, 1);
+            var ce = Math.min(i.c + 1, cols);
+            var result = [];
+            for (r = rs; r <= re; r++) {
+                for (c = cs; c <= ce; c++) {
+                    result.push(grid[r][c]);
+                }
+            }
+            return result;
+        }
+    </script>
+    <div align="center">
+        <a href="index.html">重新开始</a>
+    </div>
+</body>
+
+</html>

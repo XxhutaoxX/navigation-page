@@ -1,0 +1,266 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    counter-reset: total cleared bombs flagged;
+    font-size: 1.6rem;
+    font-family: sans-serif;
+}
+
+H1 {
+    font-size: 2rem;
+    margin: 1rem auto;
+    width: fit-content
+}
+
+#game {
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    background: lightgrey;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem;
+    border: 0.3rem outset lightgrey;
+    border-radius: 1rem;
+}
+
+.square {
+    position: relative;
+    float: left;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border: 1px grey solid;
+    background-color: lightgrey;
+    text-align: center;
+}
+
+.square>label,
+.square>.flag {
+    position: absolute;
+    left: -0.1rem;
+    top: -0.1rem;
+    right: -0.1rem;
+    bottom: -0.1rem;
+    border: 0.2rem outset grey;
+    background-color: darkgrey;
+}
+
+#flag-mode {
+    display: none;
+}
+
+[for="flag-mode"],
+[for=""] {
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    background: lightgrey;
+    padding: 0 0.5rem;
+    border: 2px outset grey;
+    border-radius: 0.5rem;
+    margin: 0.2rem auto;
+}
+
+#flag-mode:not(:checked)+[for="flag-mode"]:after {
+    content: " OFF ";
+    font-weight: bold;
+}
+
+#flag-mode:checked+[for="flag-mode"]:after {
+    content: " ON ";
+    font-weight: bold;
+}
+
+.open-square,
+.flag-square {
+    position: absolute;
+    left: -1000rem;
+}
+
+.open-square:not(.bomb) {
+    counter-increment: total;
+}
+
+.open-square.bomb {
+    counter-increment: bombs;
+}
+
+.open-square:checked+.square>label {
+    display: none;
+}
+
+:not(.bomb)[data-count]+.square:before {
+    line-height: 2rem;
+    font-weight: bold;
+}
+
+:not(.bomb)[data-count="1"]+.square:before {
+    content: "1";
+    color: blue;
+}
+
+:not(.bomb)[data-count="2"]+.square:before {
+    content: "2";
+    color: green;
+}
+
+:not(.bomb)[data-count="3"]+.square:before {
+    content: "3";
+    color: red;
+}
+
+:not(.bomb)[data-count="4"]+.square:before {
+    content: "4";
+    color: darkblue;
+}
+
+:not(.bomb)[data-count="5"]+.square:before {
+    content: "5";
+    color: brown;
+}
+
+:not(.bomb)[data-count="6"]+.square:before {
+    content: "6";
+    color: cyan;
+}
+
+:not(.bomb)[data-count="7"]+.square:before {
+    content: "7";
+    color: black;
+}
+
+:not(.bomb)[data-count="8"]+.square:before {
+    content: "8";
+    color: grey;
+}
+
+.bomb+.square {
+    background-color: red
+}
+
+.bomb+.square:before {
+    content: "💣";
+    line-height: 2rem;
+    font-size: 1.2rem;
+}
+
+.flag {
+    display: none;
+}
+
+.flag-square:checked~.flag {
+    display: block;
+    counter-increment: flagged;
+}
+
+.flag-square:checked~.flag-label:before,
+.flag-square:checked~.flag:before {
+    content: "🚩"
+}
+
+#flag-mode:not(:checked)~.square>.flag-label {
+    display: none;
+}
+
+#flag-mode:checked~.show-square:not(:checked)+.square>.flag-label {
+    display: block;
+}
+
+.open-square:not(.bomb):checked {
+    counter-increment: total cleared;
+}
+
+.bombs {
+    width: 50%;
+    text-align: center;
+}
+
+.score {
+    clear: both;
+    float: right;
+    text-align: right;
+    width: 50%;
+    text-align: center;
+}
+
+.bombs:after {
+    content: counter(bombs) "🚩" counter(flagged);
+    line-height: 3rem;
+    border: 0.2rem inset lightgrey;
+    padding: 0.2rem 0.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.score:after {
+    content: counter(cleared) " of " counter(total);
+    line-height: 3rem;
+    border: 0.2rem inset lightgrey;
+    padding: 0.2rem 0.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.message {
+    clear: left;
+    color: limegreen;
+    text-align: center;
+    font-weight: bold;
+}
+
+.message:before {
+    content: "(: YOU WIN! :) "
+}
+
+.pane {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.open-square:not(.grouped):not(.bomb):not(:checked)~.message:before,
+.group-master:not(:checked)~.message:before {
+    content: none;
+}
+
+.open-square:not(.grouped):not(.bomb):not(:checked)~.pane,
+.group-master:not(:checked)~.pane,
+.lost-game {
+    display: none;
+}
+
+.open-square.bomb:checked~.message {
+    color: red;
+}
+
+.open-square.bomb:checked~.pane {
+    position: relative;
+    display: block;
+}
+
+.open-square.bomb:checked~.message:before {
+    content: " ): You Lose :(" !important;
+}
+
+.open-square.bomb:checked~.lost-game {
+    position: relative;
+    display: block;
+    z-index: 2
+}
+
+#show-bombs:checked~.bomb+.square>label {
+    display: none;
+}
+
+#show-bombs:checked~.open-square:not(.bomb)+.square>.flag:after {
+    content: "❌";
+    position: absolute;
+    top: -0.4rem;
+    left: -0.1rem;
+}

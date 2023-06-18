@@ -1,5 +1,5 @@
 # 游戏导航页
-![star](https://img.shields.io/github/stars//XxhutaoxX/navigation-page.svg)
+![star](https://img.shields.io/github/stars/XxhutaoxX/navigation-page.svg)
 ### 声明
 随便写的东西，有问题就到issues说(不过这种东西总不会有bug吧)
 ### 简介

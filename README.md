@@ -1,4 +1,5 @@
 # 游戏导航页
+![](https://img.shields.io/github/stars//XxhutaoxX/navigation-page.svg)
 ### 声明
 随便写的东西，有问题就到issues说(不过这种东西总不会有bug吧)
 ### 简介
@@ -12,3 +13,6 @@
 将源码下载下来然后找到源码文件夹的index.html文件
 </code></pre>
 </details>
+
+### Demo
+![Demo图片](demo.png)

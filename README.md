@@ -1,9 +1,9 @@
 # 游戏导航页
 [![stars](https://img.shields.io/github/stars/XxhutaoxX/navigation-page.svg)](https://github.com/XxhutaoxX/navigation-page)
 [![作者](https://img.shields.io/badge/Author-胡桃-pink.svg)](https://github.com/XxhutaoxX)
-### 声明
+## 声明
 随便写的东西，有问题就到issues说(不过这种东西总不会有bug吧)
-### 简介
+## 简介
 <details>
 <summary>点开查看简介(很重要)</summary>
 <pre><code>
@@ -14,7 +14,7 @@
 </code></pre>
 </details>
 
-### 部署
+## 部署
 <details>
 <summary>这么简单的还要教？（如果实在需要就点开我吧）</summary>
 <pre><code>
@@ -22,7 +22,8 @@
 </code></pre>
 </details>
 
-### Demo
+## Demo
 ![Demo图片](demo.png)
+
 ## Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=XxhutaoxX/navigation-page&type=Date)](https://star-history.com/#XxhutaoxX/navigation-page&Date)

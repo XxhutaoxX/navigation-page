@@ -18,5 +18,5 @@
 
 ### Demo
 ![Demo图片](demo.png)  
-
-<iframe style="width:100%;height:auto;min-width:600px;min-height:400px;" src="https://star-history.com/embed?secret=Z2hwX1VpaVZWeFJHUzE2cUt1QVV2dnkzS2xjdjlUQm9aNjE4dFFndg==#XxhutaoxX/navigation-page&Date" frameBorder="0"></iframe>
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=XxhutaoxX/navigation-page&type=Date)](https://star-history.com/#XxhutaoxX/navigation-page&Date)

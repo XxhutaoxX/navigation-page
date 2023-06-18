@@ -23,12 +23,6 @@
 </details>
 
 ### Demo
-<details>
-<summary>Demo(点开查看)</summary>
-<pre><code>
 ![Demo图片](demo.png)
-</code></pre>
-</details>
-
 ## Star History
 [![Star History Chart](https://api.star-history.com/svg?repos=XxhutaoxX/navigation-page&type=Date)](https://star-history.com/#XxhutaoxX/navigation-page&Date)

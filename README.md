@@ -1,6 +1,7 @@
 # 游戏导航页
 [![stars](https://img.shields.io/github/stars/XxhutaoxX/navigation-page.svg)](https://github.com/XxhutaoxX/navigation-page)
 [![作者](https://img.shields.io/badge/Author-胡桃-pink.svg)](https://github.com/XxhutaoxX)
+[![版本号](https://img.shields.io/badge/version-v1.0-brightgreen.svg)](https://github.com/XxhutaoxX/navigation-page/releases)
 ## 声明
 随便写的东西，有问题就到issues说(不过这种东西总不会有bug吧)
 ## 简介

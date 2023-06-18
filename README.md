@@ -8,7 +8,7 @@
 <summary>点开查看简介(很重要)</summary>
 <pre><code>
 1.导航页部分由@XxhutaoxX编写，游戏部分使用了GitHub上的源码  
-2.允许进行私人改编。（需要在代码中添加注释<!--- Written by Hutao --->）  
+2.允许进行私人改编。（需要在代码中添加注释<!-- Written by Hutao -->）  
 3.使用html，css进行编写  
 4.胡桃游戏导航页可以做到无需刷新的切换游戏
 </code></pre>

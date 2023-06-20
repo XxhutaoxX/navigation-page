@@ -20,6 +20,3 @@
 ## Demo
 Demo:https://game.hutao.life
 [![Demo图片](demo.png)](https://game.hutao.life)
-
-## Star History
-[![Star History Chart](https://api.star-history.com/svg?repos=XxhutaoxX/navigation-page&type=Timeline)](https://star-history.com/#XxhutaoxX/navigation-page&Timeline)

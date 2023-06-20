@@ -5,7 +5,7 @@
 ## 声明
 随便写的东西，有问题就到issues说(不过这种东西总不会有bug吧)
 ## 简介
-1.导航页由@XxhutaoxX编写  
+1.由@XxhutaoxX编写  
 2.允许进行修改。（需要在代码中添加注释Written by Hutao）  
 3.使用html，css进行编写  
 4.可以做到无需刷新的切换游戏
